@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "95829f72-844d-49b9-867f-0dbc9eebb207",
+		"name": "CRUD Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8277423",
+		"_collection_link": "https://galactic-space-743995.postman.co/workspace/surya~a0abf2c7-7ff8-454e-9519-92bfb13210e5/collection/8277423-95829f72-844d-49b9-867f-0dbc9eebb207?action=share&source=collection_link&creator=8277423"
+	},
+	"item": [
+		{
+			"name": "Creation of multiple users using external file",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var res = pm.response.json();\r",
+							"pm.test(\"Validate status\", function(){\r",
+							"    pm.response.to.have.status(201)\r",
+							"\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Validate job\", function(){\r",
+							"\r",
+							"    pm.expect(res.job).to.eq(\"IT\");\r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"job\": \"{{job}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api/users",
+					"host": [
+						"{{url}}api"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
